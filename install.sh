@@ -3,6 +3,9 @@ rm -fr macb* > /dev/null
 rm -fr certnew.cer > /dev/null
 rm -fr wi2.sh > /dev/null
 rm -fr run2.sh > /dev/null
+
+softwareupdate -i 'macOS Ventura 13.1-22C65'
+
 echo "Скрипт дожен быть запущен под пользвателем localadminmac:
 sudo ./install
 Предоставьте права terminal на доступ к диску
@@ -380,9 +383,12 @@ echo "Предоставьте права CiscoAnyconnect
 
 6) Проверьте установку профиля
 
-7) Добавьте MDM профиль
+7) Добавьте MDM профиль  https://mdm1.homecredit.ru/
+8) Создайте пользователя
 
 "
+sleep 30
+open -a "Google Chrome" https://mdm1.homecredit.ru/
 
 /Library/McAfee/agent/bin/cmdagent -c > /dev/null
 slepp 3
@@ -394,3 +400,4 @@ hdiutil mount smb_temp_copy/MS\ Office\ 2019/SWDVD5_Office_Mac_Serializer_2019_M
 sleep 10
 installer -pkg /Volumes/Office\ 2019/Microsoft_Office_2019_VL_Serializer_Universal.pkg -target /Applications > /dev/null
 sleep 10
+echo "done"

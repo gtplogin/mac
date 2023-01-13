@@ -1,8 +1,8 @@
 #!/bin/bash
-rm -fr macb*
-rm -fr certnew.cer
-rm -fr wi2.sh
-rm -fr run2.sh
+rm -fr macb* > /dev/null
+rm -fr certnew.cer > /dev/null
+rm -fr wi2.sh > /dev/null
+rm -fr run2.sh > /dev/null
 echo "Скрипт дожен быть запущен под пользвателем localadminmac:
 sudo ./install
 Предоставьте права terminal на доступ к диску
@@ -380,17 +380,17 @@ echo "Предоставьте права CiscoAnyconnect
 
 6) Проверьте установку профиля
 
-!!! Через 10 минут подключаем флешку и она должна быть заблочена.
-    Если нет, то выполняем следующие 2 команды:
-
-	sudo /Library/McAfee/agent/bin/cmdagent -c
-	sudo /Library/McAfee/agent/bin/cmdagent -e
+7) Добавьте MDM профиль
 
 "
-echo "Актиация Office
 
-"
-    hdiutil mount smb_temp_copy/MS\ Office\ 2019/SWDVD5_Office_Mac_Serializer_2019_MLF_X22-61752.ISO
-    sleep 10
-    installer -pkg /Volumes/Office\ 2019/Microsoft_Office_2019_VL_Serializer_Universal.pkg -target /Applications
-    sleep 10
+/Library/McAfee/agent/bin/cmdagent -c > /dev/null
+slepp 3
+/Library/McAfee/agent/bin/cmdagent -e > /dev/null
+
+installer -pkg smb_temp_copy/nomad_login.pkg -target /Applications > /dev/null
+
+hdiutil mount smb_temp_copy/MS\ Office\ 2019/SWDVD5_Office_Mac_Serializer_2019_MLF_X22-61752.ISO > /dev/null
+sleep 10
+installer -pkg /Volumes/Office\ 2019/Microsoft_Office_2019_VL_Serializer_Universal.pkg -target /Applications > /dev/null
+sleep 10

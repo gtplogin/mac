@@ -275,28 +275,28 @@ sleep 15
 # *****************************************************************
 
 CURRENT_HOSTNAME=$(hostname)
-# ********************************** Блок с возможными ошибками
-echo "#!/usr/bin/expect -f
-set timeout 20
+# # ********************************** Блок с возможными ошибками
+# echo "#!/usr/bin/expect -f
+# set timeout 20
 
-spawn ./run2.sh
+# spawn ./run2.sh
 
-expect \"*key*\" { send \"Par0v03ik\r\" }
+# expect \"*key*\" { send \"Par0v03ik\r\" }
 
-interact" > wi2.sh
-CURRENT_HOSTNAME=$(hostname)
-echo "#!/bin/bash
-CURRENT_HOSTNAME=$(hostname)
-sleep 2
-openssl genrsa -des3 -passout pass:Par0v03ik -out macb.key 2048
-sleep 2
-openssl req -passout pass:Par0v03ik -new -subj \"/C=RU/ST=Moscow/L=Moscow/O=HCFB/OU=ITDepartment/CN=$CURRENT_HOSTNAME.homecredit.ru\" -key macb.key
-" > run2.sh
+# interact" > wi2.sh
+# CURRENT_HOSTNAME=$(hostname)
+# echo "#!/bin/bash
+# CURRENT_HOSTNAME=$(hostname)
+# sleep 2
+# openssl genrsa -des3 -passout pass:Par0v03ik -out macb.key 2048
+# sleep 2
+# openssl req -passout pass:Par0v03ik -new -subj \"/C=RU/ST=Moscow/L=Moscow/O=HCFB/OU=ITDepartment/CN=$CURRENT_HOSTNAME.homecredit.ru\" -key macb.key
+# " > run2.sh
 
-chmod 777 wi2.sh
-chmod 777 run2.sh
+# chmod 777 wi.sh
+# chmod 777 run.sh
 
-./wi2.sh
+./wi.sh
 # ********************************** Конец блока с возможными ошибками
 
 echo " "
@@ -327,28 +327,29 @@ open -a "Google Chrome" https://os-1410.homecredit.ru/certsrv/
 echo "Если не открылся сайт, откройте самостоятельно https://os-1410.homecredit.ru/certsrv/"
 read -p "Нажмите Enter как скачается сертификат" -r NULL_VAR
 sleep 10
-mv /Users/localadminmac/Downloads/certnew.cer .
+mv /Users/localadminmac/Downloads/certnew.cer /Users/localadminmac/certnew.cer
+chmod 777 certnew.cer
 sleep 2
 
 # ********************************** Блок с возможными ошибками
-echo "#!/usr/bin/expect -f
-set timeout 20
+# echo "#!/usr/bin/expect -f
+# set timeout 20
 
-spawn ./run2.sh
+# spawn ./run2.sh
 
-expect \"*key*\" { send \"Par0v03ik\r\" }
-expect \"*assword*\" { send \"Par0v03ik\r\" }
-expect \"*assword*\" { send \"Par0v03ik\r\" }
+# expect \"*key*\" { send \"Par0v03ik\r\" }
+# expect \"*assword*\" { send \"Par0v03ik\r\" }
+# expect \"*assword*\" { send \"Par0v03ik\r\" }
 
-interact" > wi2.sh
+# interact" > wi2.sh
 
-echo "#!/bin/bash
-sleep 2
-openssl pkcs12 -export -inkey macb.key -in certnew.cer -out macb.pfx
-" > run2.sh
+# echo "#!/bin/bash
+# sleep 2
+# openssl pkcs12 -export -inkey macb.key -in certnew.cer -out macb.pfx
+# " > run2.sh
 
-chmod 777 wi2.sh
-chmod 777 run2.sh
+# chmod 777 wi2.sh
+# chmod 777 run2.sh
 
 ./wi2.sh
 

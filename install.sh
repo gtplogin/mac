@@ -1,8 +1,8 @@
 #!/bin/bash
 rm -fr macb* > /dev/null
 rm -fr certnew.cer > /dev/null
-rm -fr wi2.sh > /dev/null
-rm -fr run2.sh > /dev/null
+rm -fr wi* > /dev/null
+rm -fr run* > /dev/null
 
 softwareupdate -i 'macOS Ventura 13.1-22C65'
 
@@ -296,7 +296,7 @@ CURRENT_HOSTNAME=$(hostname)
 # chmod 777 wi.sh
 # chmod 777 run.sh
 
-./wi.sh
+sudo -u localadminmac ./wi.sh
 # ********************************** Конец блока с возможными ошибками
 
 echo " "
@@ -323,11 +323,11 @@ echo "
 "
 
 sleep 25
-open -a "Google Chrome" https://os-1410.homecredit.ru/certsrv/
+sudo -u localadminmac open -a "Google Chrome" https://os-1410.homecredit.ru/certsrv/
 echo "Если не открылся сайт, откройте самостоятельно https://os-1410.homecredit.ru/certsrv/"
 read -p "Нажмите Enter как скачается сертификат" -r NULL_VAR
 sleep 10
-mv /Users/localadminmac/Downloads/certnew.cer /Users/localadminmac/certnew.cer
+sudo -u localadminmac mv /Users/localadminmac/Downloads/certnew.cer /Users/localadminmac/certnew.cer
 chmod 777 certnew.cer
 sleep 2
 
@@ -351,7 +351,7 @@ sleep 2
 # chmod 777 wi2.sh
 # chmod 777 run2.sh
 
-./wi2.sh
+sudo -u localadminmac ./wi2.sh
 
 security import macb.pfx -A -k /Library/Keychains/System.keychain -P Par0v03ik
 # ********************************** Конец блока с возможными ошибками
@@ -385,14 +385,14 @@ echo "Предоставьте права CiscoAnyconnect
 6) Проверьте установку профиля
 
 7) Добавьте MDM профиль  https://mdm1.homecredit.ru/
-8) Создайте пользователя
+8) Создайте пользователя, шифруем диск, nomad в автозагрузку
 
 "
 sleep 30
-open -a "Google Chrome" https://mdm1.homecredit.ru/
+sudo -u localadminmac open -a "Google Chrome" https://mdm1.homecredit.ru/
 
 /Library/McAfee/agent/bin/cmdagent -c > /dev/null
-slepp 3
+sleep 3
 /Library/McAfee/agent/bin/cmdagent -e > /dev/null
 
 installer -pkg smb_temp_copy/nomad_login.pkg -target /Applications > /dev/null

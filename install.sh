@@ -191,7 +191,7 @@ if ls /Applications/NoMAD*
 then
     echo "*** NoMAD установлен"
 	curl -o smb_temp_copy/nomad_login.pkg https://files.nomad.menu/NoMAD-Login-AD.pkg
-	installer -pkg smb_temp_copy/nomad_login.pkg -target /Applications
+#	installer -pkg smb_temp_copy/nomad_login.pkg -target /Applications
 else
     echo "Установка NoMAD"
     curl -o smb_temp_copy/nomad.pkg https://files.nomad.menu/NoMAD.pkg

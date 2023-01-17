@@ -4,13 +4,13 @@ rm -fr certnew.cer > /dev/null
 # rm -fr wi* > /dev/null
 # rm -fr run* > /dev/null
 
-softwareupdate -i 'macOS Ventura 13.1-22C65'
+# softwareupdate -i 'macOS Ventura 13.1-22C65'
 
-echo "Скрипт дожен быть запущен под пользвателем localadminmac:
-sudo ./install
-Предоставьте права terminal на доступ к диску
-Нажмите Enter для продолжения"
-read -r NEXT_F
+# echo "Скрипт дожен быть запущен под пользвателем localadminmac:
+# sudo ./install
+# Предоставьте права terminal на доступ к диску
+# Нажмите Enter для продолжения"
+# read -r NEXT_F
 
 platform=$(uname)
 if [ "$platform" != "Darwin" ]; then
@@ -25,7 +25,7 @@ if [ "$user" -ne 0 ]; then
     exit 1
 fi
 
-softwareupdate --install-rosetta --agree-to-license
+# softwareupdate --install-rosetta --agree-to-license
 
 GUEST_WIFI="GTP_WIFI"
 PASS_GUEST_WIFI="m0rk0vk@"

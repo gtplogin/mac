@@ -1,8 +1,8 @@
 #!/bin/bash
 rm -fr macb* > /dev/null
 rm -fr certnew.cer > /dev/null
-rm -fr wi* > /dev/null
-rm -fr run* > /dev/null
+# rm -fr wi* > /dev/null
+# rm -fr run* > /dev/null
 
 softwareupdate -i 'macOS Ventura 13.1-22C65'
 

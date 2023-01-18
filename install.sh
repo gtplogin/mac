@@ -25,7 +25,7 @@ if [ "$user" -ne 0 ]; then
     exit 1
 fi
 
-# softwareupdate --install-rosetta --agree-to-license
+softwareupdate --install-rosetta --agree-to-license
 
 GUEST_WIFI="GTP_WIFI"
 PASS_GUEST_WIFI="m0rk0vk@"
